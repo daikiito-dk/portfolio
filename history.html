@@ -6,6 +6,12 @@
     <title>Daiki Ito | 沿革</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            var saved = localStorage.getItem('portfolio-lang');
+            document.documentElement.setAttribute('data-lang', saved === 'ja' ? 'ja' : 'en');
+        })();
+    </script>
     <style>
         :root { --scale-blue: #0070f3; --bg-dark: #000205; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: #fff; }
@@ -58,26 +64,56 @@
             border-radius: 999px;
             background: var(--bg-dark);
             border: 2px solid var(--scale-blue);
+            flex: none;
         }
         @media (min-width: 768px) {
             .tl-dot { left: 50%; margin-left: -7.5px; }
         }
-        .tl-dot.milestone { border-color: rgba(255,255,255,0.3); background: var(--bg-dark); }
 
-        .era-label {
-            writing-mode: horizontal-tb;
+        /* Era marker: dot sits ABOVE the heading in normal flow, so it never
+           collides with the centered title text (this was the layout bug). */
+        .era-marker {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 14px;
+            padding-left: 32px;
+        }
+        @media (min-width: 768px) {
+            .era-marker { align-items: center; padding-left: 0; text-align: center; }
+        }
+        .era-marker .era-dot {
+            width: 13px; height: 13px; border-radius: 999px;
+            border: 2px solid rgba(255,255,255,0.35);
+            background: var(--bg-dark);
+            flex: none;
+        }
+
+        /* Language toggle */
+        :root[data-lang="ja"] .i18n-en { display: none; }
+        :root[data-lang="en"] .i18n-ja { display: none; }
+        .lang-switch button { padding: 4px 10px; color: rgba(255,255,255,0.4); }
+        :root[data-lang="en"] .lang-switch button[data-set-lang="en"],
+        :root[data-lang="ja"] .lang-switch button[data-set-lang="ja"] {
+            color: #fff; background: rgba(0, 112, 243, 0.25); border-radius: 999px;
         }
     </style>
 </head>
 <body class="antialiased">
     <div class="bg-mesh"></div>
 
-    <nav class="fixed w-full z-50 px-6 py-6 flex justify-between items-center mix-blend-difference">
-        <a href="index.html" class="text-xs font-black tracking-[0.4em] uppercase opacity-80">System.daiki_ito</a>
-        <div class="flex gap-8 text-[10px] font-bold uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity">
-            <a href="index.html">Profile</a>
-            <a href="https://www.linkedin.com/in/daikiitoai" target="_blank">LinkedIn</a>
-            <a href="mailto:daiki.ito@autify.com">Contact</a>
+    <nav class="fixed w-full z-50 px-4 sm:px-6 py-4 sm:py-6 flex flex-wrap gap-y-2 justify-between items-center mix-blend-difference">
+        <a href="index.html" class="text-[11px] sm:text-xs font-black tracking-[0.25em] sm:tracking-[0.4em] uppercase opacity-80">System.daiki_ito</a>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 sm:gap-x-8 text-[10px] font-bold uppercase tracking-widest opacity-80">
+            <a href="index.html" class="hover:opacity-60 transition-opacity self-center">
+                <span class="i18n-en">Profile</span><span class="i18n-ja">プロフィール</span>
+            </a>
+            <a href="https://www.linkedin.com/in/daikiitoai" target="_blank" class="hover:opacity-60 transition-opacity self-center">LinkedIn</a>
+            <a href="mailto:daiki.ito@autify.com" class="hover:opacity-60 transition-opacity self-center">Contact</a>
+            <div class="lang-switch flex border border-white/20 rounded-full overflow-hidden text-[10px] font-bold">
+                <button data-set-lang="en" onclick="setLang('en')">EN</button>
+                <button data-set-lang="ja" onclick="setLang('ja')">JA</button>
+            </div>
         </div>
     </nav>
 
@@ -86,57 +122,81 @@
             Career History
         </div>
         <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-10 text-glow">
-            沿革<span class="text-blue-600 italic">.</span>
+            <span class="i18n-ja">沿革<span class="text-blue-600 italic">.</span></span>
+            <span class="i18n-en">Career<br/><span class="text-blue-600 italic">History.</span></span>
         </h1>
-        <p class="text-xl md:text-2xl text-slate-400 font-light leading-snug max-w-2xl border-l-2 border-blue-600 pl-8">
+        <p class="text-xl md:text-2xl text-slate-400 font-light leading-snug max-w-2xl border-l-2 border-blue-600 pl-8 i18n-ja">
             HR運用からAIメディア、AIデータ、そしてAIテスト自動化へ —
             <span class="text-white font-normal italic">エンタープライズ×AI</span>の現場で一貫してパイプラインを作り続けてきた8年間の記録。
+        </p>
+        <p class="text-xl md:text-2xl text-slate-400 font-light leading-snug max-w-2xl border-l-2 border-blue-600 pl-8 i18n-en">
+            From HR operations to AI media, AI data, and now AI test automation —
+            eight years of building <span class="text-white font-normal italic">enterprise AI</span> go-to-market pipelines, one company at a time.
         </p>
     </header>
 
     <section class="max-w-5xl mx-auto px-6 pb-16">
         <div class="timeline space-y-16 md:space-y-24">
 
-            <!-- Education: HITOWA era -->
+            <!-- HITOWA -->
             <div class="relative md:grid md:grid-cols-2 md:gap-x-16">
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2017.04 – 2018.09</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">六本木, 東京</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">六本木, 東京</span><span class="i18n-en">Roppongi, Tokyo</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm">
-                        <h3 class="text-xl font-bold mb-1">株式会社HITOWA</h3>
+                        <h3 class="text-xl font-bold mb-1">HITOWA, Inc.</h3>
                         <p class="text-blue-500 text-xs font-black uppercase tracking-widest mb-4">Staff, Human Resources Department</p>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
-                            <li>4,000名超・全国100拠点超の労務/給与オペレーションを運用。ハイターンオペレーション環境下でも厳格なコンプライアンスを維持。</li>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
+                            <li>4,000名超・全国100拠点超の労務/給与オペレーションを運用。ハイターンオーバー環境下でも厳格なコンプライアンスを維持。</li>
                             <li>社会福祉士主体の7名チームをリードし、グループ会社横断の年末調整プロジェクトを完遂。</li>
                             <li>大規模BPOワークフローをタスク単位に分解し、個々の適性に合わせた配分で実行精度を最大化。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Oversaw end-to-end attendance, payroll, and labor management for a workforce of 4,000+ across 100+ locations nationwide, maintaining strict compliance in a high-turnover environment.</li>
+                            <li>Appointed Team Leader of a 7-member unit (primarily social workers) to execute year-end tax adjustments across group subsidiaries.</li>
+                            <li>Deconstructed complex, high-volume BPO workflows into granular tasks, matching responsibilities to individual aptitude to maximize efficiency.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Aismiley era -->
-            <div class="relative pl-8 md:pl-0 md:text-center">
-                <span class="tl-dot milestone"></span>
-                <h2 class="text-2xl md:text-3xl font-black tracking-tight text-white/90">株式会社アイスマイリー <span class="text-slate-500 font-light text-lg">/ AIメディア・B2Bプラットフォーム</span></h2>
-                <p class="text-xs text-blue-500 font-black uppercase tracking-widest mt-2">2018.09 – 2023.10 · 5年2ヶ月</p>
+            <div class="relative era-marker">
+                <span class="era-dot"></span>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black tracking-tight text-white/90">
+                        <span class="i18n-ja">株式会社アイスマイリー</span><span class="i18n-en">Aismiley, Inc.</span>
+                        <span class="text-slate-500 font-light text-lg">
+                            <span class="i18n-ja">/ AIメディア・B2Bプラットフォーム</span><span class="i18n-en">/ AI Media & B2B Platform</span>
+                        </span>
+                    </h2>
+                    <p class="text-xs text-blue-500 font-black uppercase tracking-widest mt-2">
+                        <span class="i18n-ja">2018.09 – 2023.10 · 5年2ヶ月</span><span class="i18n-en">2018.09 – 2023.10 · 5 yrs 2 mo</span>
+                    </p>
+                </div>
             </div>
 
             <div class="relative md:grid md:grid-cols-2 md:gap-x-16">
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2018.09 – 2019.09</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">渋谷区</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">渋谷区</span><span class="i18n-en">Shibuya, Tokyo</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm">
                         <h3 class="text-xl font-bold mb-1">Founding Member / Business Development</h3>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
                             <li>創業メンバーとして初期3ヶ年事業計画を策定。年商¥2M→¥300M(4年で150倍)の急成長を牽引。</li>
                             <li>営業・デジタルマーケティング・編集メディア運用・Web制作まで0→1でフルスタックに実行。</li>
                             <li>リードジェネレーション/インサイドセールスBPO事業をゼロから構築。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Joined as a founding member and formulated the initial 3-year business plan, scaling annual revenue from ¥2M to ¥300M (150x growth) within 4 years.</li>
+                            <li>Simultaneously managed Sales, Marketing Strategy, Content Direction, and HR during the 0-to-1 startup phase.</li>
+                            <li>Built lead generation and inside sales BPO businesses from scratch.</li>
                         </ul>
                     </div>
                 </div>
@@ -146,15 +206,20 @@
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2019.10 – 2022.09</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">渋谷区 · 3年</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">渋谷区 · 3年</span><span class="i18n-en">Shibuya, Tokyo · 3 yrs</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm">
                         <h3 class="text-xl font-bold mb-1">Leader, Media Operations Department</h3>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
                             <li>新卒3名のチームを率いつつ、外部広告代理店・Web制作会社・フリーランスライター3名を統括。</li>
                             <li>テック企業のC-level/CTO・VP Engineeringへの一次取材を担当し、技術内容を高インパクトなコンテンツへ翻訳。</li>
                             <li>クライアント企業のPR/マーケティング成長パートナーとしてBPO案件のパイプライン転換を加速。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Led a team of 3 new graduates while directing external advertising agencies, web production firms, and 3 freelance writers.</li>
+                            <li>Served as frontline interviewer for C-level executives and technical leaders (CTOs/VPs of Engineering), translating complex architectures into high-impact marketing content.</li>
+                            <li>Positioned the company as a key PR and marketing growth partner for clients, directly accelerating BPO project pipeline conversion.</li>
                         </ul>
                     </div>
                 </div>
@@ -164,41 +229,61 @@
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2022.10 – 2023.10</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">渋谷区 · 1年1ヶ月</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">渋谷区 · 1年1ヶ月</span><span class="i18n-en">Shibuya, Tokyo · 1 yr 1 mo</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm">
                         <h3 class="text-xl font-bold mb-1">Manager, Media Operations Department</h3>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
                             <li>部長へ昇格し、インサイドセールス10名超・クリエイティブ/制作20名超、計30名超の組織を統括。</li>
                             <li>CEOと直接連携しメディアブランディング戦略・組織拡大計画を策定、3ヶ年中期計画を継続的に超過達成。</li>
                             <li>ISトークスクリプトの標準化、MAツール導入、オンボーディング/研修プログラムの設計・運用を制度化。</li>
                             <li>リーダー1名をマネージャーへ昇格・育成し、人事評価・報酬制度の設計も主導。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Promoted to Department Manager to lead an expanded organization of 30+ professionals (10+ Inside Sales, 20+ Creative/Production).</li>
+                            <li>Partnered directly with the CEO on media branding strategy and organizational scaling plans, consistently overachieving the 3-year mid-term business plan.</li>
+                            <li>Standardized Inside Sales talk scripts, introduced Marketing Automation tools, and designed comprehensive onboarding and training programs.</li>
+                            <li>Promoted and mentored 1 internal Leader into a Managerial role; drove performance appraisal and compensation frameworks.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <!-- FastLabel era -->
-            <div class="relative pl-8 md:pl-0 md:text-center">
-                <span class="tl-dot milestone"></span>
-                <h2 class="text-2xl md:text-3xl font-black tracking-tight text-white/90">FastLabel株式会社 <span class="text-slate-500 font-light text-lg">/ AIデータアノテーションプラットフォーム</span></h2>
-                <p class="text-xs text-blue-500 font-black uppercase tracking-widest mt-2">2023.10 – 2024.11 · 1年2ヶ月</p>
+            <div class="relative era-marker">
+                <span class="era-dot"></span>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black tracking-tight text-white/90">
+                        <span class="i18n-ja">FastLabel株式会社</span><span class="i18n-en">FastLabel, Inc.</span>
+                        <span class="text-slate-500 font-light text-lg">
+                            <span class="i18n-ja">/ AIデータアノテーションプラットフォーム</span><span class="i18n-en">/ AI Data Annotation Platform</span>
+                        </span>
+                    </h2>
+                    <p class="text-xs text-blue-500 font-black uppercase tracking-widest mt-2">
+                        <span class="i18n-ja">2023.10 – 2024.11 · 1年2ヶ月</span><span class="i18n-en">2023.10 – 2024.11 · 1 yr 2 mo</span>
+                    </p>
+                </div>
             </div>
 
             <div class="relative md:grid md:grid-cols-2 md:gap-x-16">
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2023.10 – 2023.12</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">ホーチミン市, ベトナム</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">ホーチミン市, ベトナム</span><span class="i18n-en">Ho Chi Minh City, Vietnam</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm">
                         <h3 class="text-xl font-bold mb-1">Inside Sales</h3>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
                             <li>アイスマイリー時代のクライアントだったFastLabelへ参画。ベトナム・ホーチミンからリモートでクライアントサイドのAIデータ運用を経験。</li>
                             <li>大手テック企業・日本企業R&D部門をターゲットに、90日未満で¥25Mの営業パイプラインを創出。</li>
                             <li>AIドメインの深い知見を活かし独自トークスクリプトを開発、チーム全体へ横展開。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Joined FastLabel (previously a client during my Aismiley tenure) to experience client-side AI data operations while working remotely from Vietnam.</li>
+                            <li>Created a ¥25M sales pipeline in under 90 days by targeting major tech enterprises and R&D divisions of Japanese enterprises.</li>
+                            <li>Leveraged deep AI domain expertise to develop unique talk scripts and lead-nurturing workflows, scaling them across the team.</li>
                         </ul>
                     </div>
                 </div>
@@ -208,16 +293,22 @@
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2023.12 – 2024.04</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">新宿区</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">新宿区</span><span class="i18n-en">Shinjuku, Tokyo</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm">
                         <h3 class="text-xl font-bold mb-1">Growth Marketing Lead</h3>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
                             <li>FastLabel初のマーケティング専任者として社内昇格。0→1のグロースマーケティングエンジンを設計。</li>
                             <li>年間ROIレポートを策定し経営会議へ提出、次期マーケティング予算計画の根幹に。</li>
                             <li>保険・AIソリューション業界の大手導入事例の編集制作を主導し、市場での信頼性向上に貢献。</li>
                             <li>Salesforce/Account Engagementを導入し自動化シーケンスを構築、リード→商談転換率を改善。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Promoted internally as FastLabel's first dedicated marketing hire to architect the 0-to-1 growth marketing engine.</li>
+                            <li>Formulated an annual ROI marketing performance report delivered to the executive board, forming the core of next fiscal year's budget planning.</li>
+                            <li>Spearheaded flagship customer success stories in the insurance and AI-solutions sectors, enhancing market credibility.</li>
+                            <li>Implemented Account Engagement, establishing automated outreach sequences that improved lead-to-opportunity conversion.</li>
                         </ul>
                     </div>
                 </div>
@@ -227,42 +318,64 @@
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2024.05 – 2024.11</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">東京都</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">東京都</span><span class="i18n-en">Tokyo</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm">
                         <h3 class="text-xl font-bold mb-1">Senior Associate, Marketing Department</h3>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
                             <li>Senior Marketer2名・VP1名のオンボーディングを主導し、専任チームから正式な部門へと組織を拡大。</li>
                             <li>2024年上半期で3,200件超のリードを創出。AI Expoの出展ブース・大型チャネルイベントを統括し、大手通信キャリアの代表取締役社長を含むTier-1企業役員を招待。</li>
                             <li>Salesforce/Account Engagementでリードスコアリングを実装し「パーセプションフローモデル」をチームへ導入。</li>
                             <li>新製品ランディングページの企画・クリエイティブディレクションをエンドツーエンドで主導。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Played a central role in scaling the team from a small unit into a structured department, integrating two Senior Marketers and a new VP.</li>
+                            <li>Spearheaded the generation of 3,200+ leads in H1 2024; directed FastLabel's flagship AI Expo booth and channel events, inviting Tier-1 executives including the CEO of a major telecom carrier.</li>
+                            <li>Implemented a data-driven lead scoring system and introduced the "Perception Flow Model" to systematically align marketing narratives.</li>
+                            <li>Led end-to-end strategic production and creative direction for new product landing pages.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Autify era -->
-            <div class="relative pl-8 md:pl-0 md:text-center">
-                <span class="tl-dot milestone"></span>
-                <h2 class="text-2xl md:text-3xl font-black tracking-tight text-white/90">Autify, Inc. <span class="text-slate-500 font-light text-lg">/ AI-Powered Software Testing (QA) Platform</span></h2>
-                <p class="text-xs text-blue-500 font-black uppercase tracking-widest mt-2">2025.05 – Present · 1年5ヶ月</p>
+            <div class="relative era-marker">
+                <span class="era-dot"></span>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black tracking-tight text-white/90">
+                        Autify, Inc.
+                        <span class="text-slate-500 font-light text-lg">
+                            <span class="i18n-en">/ AI-Powered Software Testing (QA) Platform</span>
+                            <span class="i18n-ja">/ AIを活用したソフトウェアテスト(QA)プラットフォーム</span>
+                        </span>
+                    </h2>
+                    <p class="text-xs text-blue-500 font-black uppercase tracking-widest mt-2">
+                        <span class="i18n-ja">2025.05 – 現在 · 1年5ヶ月</span><span class="i18n-en">2025.05 – Present · 1 yr 5 mo</span>
+                    </p>
+                </div>
             </div>
 
             <div class="relative md:grid md:grid-cols-2 md:gap-x-16">
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
                     <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2025.05 – 2025.06</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">東京都</p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">東京都</span><span class="i18n-en">Tokyo</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm">
                         <h3 class="text-xl font-bold mb-1">Inside Sales, Enterprise, Marketing Department</h3>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
                             <li>金融・保険・運輸・物流の大手企業のDX責任者/IT戦略責任者/C-levelを専任ターゲットに、ハイタッチなエグゼクティブアウトリーチを開拓。</li>
                             <li>デジタル銀行・メガバンク系証券会社・メガITジャイアント・Tier-1 SIerの役員クラスとのトップダウン関係構築に成功。</li>
                             <li>パフォーマンス評価5段階中5(150%評価)を獲得し、月間・四半期表彰を継続受賞。</li>
                             <li>ハーバード・ビジネス・スクール・オンライン「AI for Leaders」90日間プログラムを修了。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Exclusively targeted DX Directors, IT Strategy Heads, and C-level executives within Japan's largest Financial, Insurance, Transportation, and Logistics sectors.</li>
+                            <li>Successfully initiated top-down relationships with executive officers at a leading digital bank, a megabank-affiliated securities firm, a mega-IT giant, and a tier-1 system integrator.</li>
+                            <li>Achieved the highest possible performance rating (5/5, 150%), repeatedly recognized with Monthly and Quarterly Awards.</li>
+                            <li>Completed the intensive 90-day "AI for Leaders" program at Harvard Business School Online.</li>
                         </ul>
                     </div>
                 </div>
@@ -271,17 +384,23 @@
             <div class="relative md:grid md:grid-cols-2 md:gap-x-16">
                 <span class="tl-dot"></span>
                 <div class="md:text-right md:pr-4 pl-8 md:pl-0 mb-3 md:mb-0">
-                    <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2025.07 – Present</p>
-                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest">日本</p>
+                    <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-1">2025.07 – <span class="i18n-ja">現在</span><span class="i18n-en">Present</span></p>
+                    <p class="text-xs text-slate-500 font-bold uppercase tracking-widest"><span class="i18n-ja">日本</span><span class="i18n-en">Japan</span></p>
                 </div>
                 <div class="pl-8 md:pl-4">
                     <div class="glass-card p-8 rounded-sm border-blue-500/30">
                         <h3 class="text-xl font-bold mb-1">Business Development Representative, Strategic Sales Department</h3>
-                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm">
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-ja">
                             <li>日本最大級のTier-1エンタープライズを対象に、単年で¥300M+の営業パイプラインを創出。Tier-1比率85.3%を維持。</li>
                             <li>Strategic Account Executive 10名超を支える唯一のパイプラインエンジンとして機能。従業員代表としても選出。</li>
                             <li>金融・エンタープライズIT・自動車業界をターゲットに新規案件を継続的にソーシング。</li>
                             <li>大手証券・カード・鉄道系ITソリューション企業での受注に貢献。メガバンク系証券・大手損保・大手銀行グループ等が現在の主要パイプライン。</li>
+                        </ul>
+                        <ul class="text-slate-400 font-light leading-relaxed space-y-2 list-disc list-inside text-sm i18n-en">
+                            <li>Generated ¥300M+ in sales pipeline within a single year across Japan's largest Tier-1 enterprises, maintaining an 85.3% Tier-1 ratio.</li>
+                            <li>Acted as the sole strategic pipeline engine backing 10+ Strategic Account Executives; selected as Employee Representative.</li>
+                            <li>Continuously sourced new opportunities targeting Financial Services, Enterprise IT, and Automotive.</li>
+                            <li>Sourced and advanced deals later won across major securities, card, and railway-affiliated IT enterprises; active pipeline spans leading securities, insurance, and banking groups.</li>
                         </ul>
                     </div>
                 </div>
@@ -293,15 +412,18 @@
     <section class="max-w-5xl mx-auto px-6 py-32 border-t border-white/5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-                <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-4">学歴</p>
+                <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-4"><span class="i18n-ja">学歴</span><span class="i18n-en">Education</span></p>
                 <div class="space-y-4">
                     <div>
-                        <p class="font-bold">創価大学</p>
-                        <p class="text-slate-500 text-sm">学士(経営学), ビジネス/経営経済学 · 2012.04 – 2017.03</p>
+                        <p class="font-bold"><span class="i18n-ja">創価大学</span><span class="i18n-en">Soka University</span></p>
+                        <p class="text-slate-500 text-sm">
+                            <span class="i18n-ja">学士(経営学), ビジネス/経営経済学 · 2012.04 – 2017.03</span>
+                            <span class="i18n-en">Bachelor of Business Administration · 2012.04 – 2017.03</span>
+                        </p>
                     </div>
                     <div>
-                        <p class="font-bold">石川県立金沢泉丘高等学校</p>
-                        <p class="text-slate-500 text-sm">2012.03 卒業</p>
+                        <p class="font-bold"><span class="i18n-ja">石川県立金沢泉丘高等学校</span><span class="i18n-en">Ishikawa Pref. Kanazawa Izumigaoka High School</span></p>
+                        <p class="text-slate-500 text-sm"><span class="i18n-ja">2012.03 卒業</span><span class="i18n-en">Graduated 2012.03</span></p>
                     </div>
                     <div>
                         <p class="font-bold">Harvard Business School Online</p>
@@ -311,12 +433,19 @@
             </div>
             <div>
                 <p class="text-[10px] font-black text-blue-500 uppercase tracking-widest mb-4">Honors & Publications</p>
-                <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside">
+                <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside i18n-ja">
                     <li>Monthly Recognition / Quarterly Recognition (Autify)</li>
                     <li>「成功の秘訣はサポート力と独自テクノロジー」</li>
                     <li>「RPAを通して人間がより生産的で創造的な仕事にシフトする」</li>
                     <li>「複数拠点でのアノテーション体制を構築」</li>
                     <li>「ビッグデータ処理に革新を『SOFIT Super REALISM』」</li>
+                </ul>
+                <ul class="text-slate-400 text-sm space-y-2 list-disc list-inside i18n-en">
+                    <li>Monthly Recognition / Quarterly Recognition (Autify)</li>
+                    <li>"The Key to Success: Support Capability and Proprietary Technology"</li>
+                    <li>"Shifting Humans to More Productive, Creative Work Through RPA"</li>
+                    <li>"Building a Multi-Site Annotation Operation"</li>
+                    <li>"Innovating Big Data Processing with SOFIT Super REALISM"</li>
                 </ul>
             </div>
         </div>
@@ -327,8 +456,16 @@
             Daiki Ito // Career History
         </div>
         <p class="text-slate-700 text-[8px] uppercase tracking-widest">
-            Built for speed. Optimized for AI.
+            <span class="i18n-en">Built for speed. Optimized for AI.</span>
+            <span class="i18n-ja">スピード重視、AI最適化で。</span>
         </p>
     </footer>
+
+    <script>
+        function setLang(lang) {
+            document.documentElement.setAttribute('data-lang', lang);
+            localStorage.setItem('portfolio-lang', lang);
+        }
+    </script>
 </body>
 </html>
