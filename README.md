@@ -1,43 +1,45 @@
 # Hi there, I'm Daiki Ito 👋
 
-### 🚀 Driving AI-Powered QA Transformation | Growth Marketing & Inside Sales Leadership
+### 🚀 Enterprise Business Development | AI Go-To-Market | Japan
 
-[cite_start]I am a results-focused executive specializing in **Growth Marketing**, **Inside Sales**, and **Strategic Business Expansion** within the AI domain[cite: 34]. [cite_start]I combine broad functional expertise with a proven ability to accelerate revenue through AI-native strategies and operational excellence[cite: 35].
-
----
-
-## 🛠 Skills & Expertise
-
-* [cite_start]**AI & Technology**: Google Gemini, Generative AI, AI-OCR, AWS Certified AI Practitioner [cite: 8, 15, 16, 17, 27]
-* [cite_start]**Leadership**: Growth Marketing, Enterprise Inside Sales, Strategic Planning [cite: 31, 33, 57]
-* [cite_start]**Languages**: English (Professional Working), Japanese (Native or Bilingual) [cite: 12, 13]
-* [cite_start]**Education**: Harvard Business School Online (Certificate in AI for Leaders, 2025-2026) [cite: 104, 105]
+High-agency enterprise BDR with 8+ years across AI and B2B SaaS in Japan, specializing in building pipeline for Strategic & Large Enterprise accounts through thoughtful outbound, rigorous discovery, and clear stakeholder mapping. Comfortable engaging technical buyers across Product, Engineering, IT, and Security. Designs AI-enabled GTM workflows (GPTs/agents) to scale prospecting and qualification.
 
 ---
 
-## 📈 Key Achievements
+## 📈 Impact Snapshot
 
-* [cite_start]**Revenue Growth**: Grew annual sales revenue from ¥2M to ¥300M over 4 years (2018-2023)[cite: 42].
-* [cite_start]**Pipeline Acceleration**: Contributed to over ¥200M+ pipeline in just 6 months (2025)[cite: 40].
-* [cite_start]**Lead Generation**: Generated 3,200+ leads in H1 2024[cite: 40].
-* [cite_start]**Team Management**: Directed a diverse Creative team of 20+ and managed an Inside Sales team of 10+[cite: 36, 37].
+* **¥420M+** in qualified pipeline (85%+ Tier 1) across 220 enterprise opportunities, in under 12 months as sole BDR
+* **5/5** top performance rating at Autify
+* Sourced/advanced deals later won at Mizuho Securities, Sumitomo Mitsui Card, and JR West IT Solutions
+* Founding member; helped scale Aismiley's revenue from ¥2M to ¥300M+ over four years, leading a cross-functional team of up to 30
 
 ---
 
 ## 💼 Professional Experience
 
-* **Autify**: Inside Sales, Enterprise | [cite_start]Marketing Department (2025 - Present) [cite: 49, 51, 54, 55]
-* **FastLabel Inc.**: Growth Marketing Lead | [cite_start]Senior Associate (2023 - 2024) [cite: 58, 61, 67, 68]
-* **Aismiley, Inc.**: Manager | [cite_start]Founding Member (2018 - 2023) [cite: 75, 78, 79, 90, 91]
+* **Autify, Inc.** — Business Development Representative, Strategic Sales (May 2025 – Present)
+* **FastLabel, Inc.** — Marketing & Inside Sales, Senior Associate (2023 – 2025)
+* **Aismiley, Inc.** — Founding Member → Manager, Media & Sales Operations (2018 – 2023)
 
 ---
 
-## 📝 Publications & Thought Leadership
+## 🛠 AI Fluency & Certifications
 
-* [cite_start]"The Future of Dialogue Systems: Collaboration between AI and Humans" [cite: 29]
-* [cite_start]"DX Strategy: Insights from NDI Solutions" [cite: 28]
-* [cite_start]"Back-office Revolution with AI-OCR" [cite: 27]
-* [cite_start]"Innovating Big Data Processing with SOFIT Super REALISM" [cite: 25]
+* Daily hands-on user of generative AI (ChatGPT, Claude, Gemini) for prospecting, research, and content; builds GPTs/agents for GTM workflows
+* Author of the LinkedIn newsletter ["AI Agency for Business Leaders"](https://www.linkedin.com/in/daikiitoai) — 221 subscribers, including a Gartner VP Analyst and a KOSÉ Holdings EVP
+* HBS Online — AI for Leaders · AWS Certified AI Practitioner · CompTIA AI Agent Essentials · Salesforce Agentblazer Champion · HubSpot Sales Management · Apple Ads · JDLA Deep Learning (G-test)
+
+---
+
+## 🎓 Education
+
+* Bachelor of Business Administration, Soka University, Tokyo (2012 – 2017)
+
+---
+
+## 🗣 Languages
+
+Japanese (Native) · English (Business) · French (Elementary — DELF A1 in progress)
 
 ---
 
@@ -48,8 +50,6 @@
 ---
 
 ## 📫 Connect with Me
-* [cite_start]**LinkedIn**: [linkedin.com/in/daikiitoai](https://www.linkedin.com/in/daikiitoai) [cite: 4]
-* [cite_start]**Company**: [Autify JP](https://autify.jp/) [cite: 6]
-* [cite_start]**Email**: daiki.ito@autify.com [cite: 3]
-
-> [cite_start]"Tough, Speedy, and Professional executive, consistently bringing a Courageous, Bold, and Positive Energy to every challenge." [cite: 43]
+* **LinkedIn**: [linkedin.com/in/daikiitoai](https://www.linkedin.com/in/daikiitoai)
+* **Company**: [Autify](https://autify.jp/)
+* **Email**: daiki.ito@autify.com
