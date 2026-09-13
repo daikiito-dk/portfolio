@@ -23,6 +23,31 @@ High-agency enterprise BDR with 8+ years across AI and B2B SaaS in Japan, specia
 
 ---
 
+## 🎮 Projects
+
+### Midnight Klondike
+A browser-based Klondike solitaire game.
+
+**[▶ Play Midnight Klondike](https://daikiito-dk.github.io/midnight-klondike/)** · [GitHub](https://github.com/daikiito-dk/midnight-klondike)
+
+### Falling Grid
+A browser-based falling-block puzzle game with hold, ghost piece, T-Spin detection, combo scoring, sound effects, persistent personal bests, and mobile touch controls.
+
+**[▶ Play Falling Grid](https://daikiito-dk.github.io/falling-grid/)** · [GitHub](https://github.com/daikiito-dk/falling-grid)
+
+---
+
+## 🤝 Contributors / AI Collaboration
+
+These projects were developed with AI-assisted collaboration alongside Daiki Ito:
+
+* **Claude (Anthropic)** — contributor to [Midnight Klondike](https://github.com/daikiito-dk/midnight-klondike/graphs/contributors)
+* **Codex (OpenAI)** — contributor to [Falling Grid](https://github.com/daikiito-dk/falling-grid/graphs/contributors)
+
+The GitHub contributor graphs reflect commit authorship and co-authored commits where GitHub can associate the commit email with an account.
+
+---
+
 ## 🛠 AI Fluency & Certifications
 
 * Daily hands-on user of generative AI (ChatGPT, Claude, Gemini) for prospecting, research, and content; builds GPTs/agents for GTM workflows
