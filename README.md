@@ -10,7 +10,7 @@ High-agency enterprise BDR with 8+ years across AI and B2B SaaS in Japan, specia
 
 * **¥420M+** in qualified pipeline (85%+ Tier 1) across 220 enterprise opportunities, in under 12 months as sole BDR
 * **5/5** top performance rating at Autify
-* Sourced/advanced deals later won at Mizuho Securities, Sumitomo Mitsui Card, and JR West IT Solutions
+* Sourced/advanced deals later won across major securities, card, and railway-affiliated IT enterprises
 * Founding member; helped scale Aismiley's revenue from ¥2M to ¥300M+ over four years, leading a cross-functional team of up to 30
 
 ---
